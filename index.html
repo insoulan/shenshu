@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="ShenshuApp">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/ui.css">
+  <script src="js/angular.js"></script>
+  <script src="js/controller.js"></script>
+  <script src="js/list/tb.js"></script>
+  <script src="js/list/sz.js"></script>
+  <script src="js/list/zzh.js"></script>
+  <script src="js/list/mc.js"></script>
+</head>
+<body ng-controller="ShenshuControl">
+  <table>
+    <tr>
+      <td>條文集：</td>
+      <td>
+        <input type="radio" name="list" value="tb" ng-model="list" ng-change="update()">
+        鐵版神數 [1001-13000]
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="radio" name="list" value="sz" ng-model="list" ng-change="update()">
+        邵子神數 [1111-12888]
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="radio" name="list" value="zzh" ng-model="list" ng-change="update()">
+        張智華 [1000-8000]
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="radio" name="list" value="mc" ng-model="list" ng-change="update()">
+        馬川 [1001-13000]
+      </td>
+    </tr>
+    <tr>
+      <td>遞　增：</td>
+      <td>
+        <input type="number" ng-pattern="/^[1-9][0-9]*$/" ng-model="diff" ng-change="update()">
+      </td>
+    </tr>
+    <tr>
+      <td>次　數：</td>
+      <td>
+        <input type="number" ng-pattern="/^[1-9][0-9]*$/" ng-model="num" ng-change="update()">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        查　詢：
+      </td>
+      <td>
+        <input type="number" ng-pattern="/^[1-9][0-9][0-9][0-9]+$/" ng-model="input" ng-change="update()">
+      </td>
+    </tr>
+    <tr ng-if="error">
+      <td></td>
+      <td id="error">查無條文！</td>
+    </tr>
+  </table>
+  <table id="result">
+    <tr ng-repeat="r in rows">
+      <td>{{$index}}</td>
+      <td>{{r}}</td>
+      <td>{{lists[list][r]}}</td>
+    </tr>
+  </table>
+</body>

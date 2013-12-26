@@ -1,0 +1,21 @@
+table {
+  float: left;
+}
+
+#error {
+  color: red;
+}
+
+#result {
+  border-collapse: collapse;
+  position: relative;
+  left: 10px;
+  color: black;
+}
+
+#result td {
+  border: 1px solid gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+}
